@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“Flappy Bird game” - Kiki Pellis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Vaste achtergrond die NOOIT meebeweegt -->
+  <div class="fixed-background" aria-hidden="true"></div>
+
+  <!-- Header balk die wegscrolt -->
+  <header class="site-header">
+    <a href="index.html" class="logo-box" aria-label="Kiki Pellis Home">KP</a>
+    <div class="nav-container">
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html#projects" class="nav-link active" id="nav-projects-link" data-i18n="nav_projects">projects</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">about me</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="lang-btn" id="lang-toggle-btn" aria-label="Switch language">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="lang-text" class="lang-text">NL</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="subpage-container">
+      <div class="content-box">
+        <!-- Linker kolom: Titels en projectbeschrijving -->
+        <div class="content-left">
+          <h1 class="content-title">“Flappy Bird game”</h1>
+          <p class="content-desc" data-i18n="flappy_bird_detail_desc">Voor dit project heb ik mijn eerste eigen game gemaakt in Unity. Ik wilde niet alleen een werkende game maken, maar ook een eigen thema en verhaal bedenken. Het idee was om een soort verhaal achter de game te creëren, waarin een witte duif op zoek is naar zijn andere helft en steeds verder vliegt totdat hij haar vindt.
+
+De witte veren die je tijdens het spelen verzamelt, hebben hierin een betekenis. In plaats van gewone muntjes zijn dit de veren van de vrouwtjesduif waar de witte duif naar op zoek is. Het spel is op dit moment nog eindeloos, maar misschien voeg ik in de toekomst nog een einde toe waarbij de duif uiteindelijk zijn andere helft vindt.
+
+Voor de game heb ik een combinatie gebruikt van zelfgemaakte en gratis online assets. Daarnaast heb ik in Unity de game opgebouwd en de verschillende onderdelen samengebracht tot een speelbaar geheel.</p>
+          <div class="content-meta" data-i18n="flappy_bird_date_label">Datum: 03-2026/06-2026</div>
+        </div>
+
+        <!-- Rechter kolom: Afbeeldingsslider -->
+        <div class="content-right">
+          <div class="gallery-slider" data-images='["../images/Flappy Bird project/flappy_bird_front_image.png","../images/Flappy Bird project/flappy_bird_1.png","../images/Flappy Bird project/Flappy_bird_2.png","../images/Flappy Bird project/flappy_bird_3.png"]'>
+            <button type="button" class="slider-arrow-btn slider-prev" aria-label="Vorige afbeelding">&lt;</button>
+            <div class="gallery-image-frame">
+              <img src="../images/Flappy Bird project/flappy_bird_front_image.png" alt="Flappy Bird game" class="gallery-image">
+            </div>
+            <button type="button" class="slider-arrow-btn slider-next" aria-label="Volgende afbeelding">&gt;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer balk met 'Projects' i.p.v. 'Back to top' -->
+  <footer class="site-footer">
+    <div class="footer-copyright">©2026 Kiki Pellis</div>
+    <ul class="footer-nav">
+      <li><a href="index.html#projects" class="footer-link" data-i18n="footer_projects">Projects</a></li>
+      <li><a href="about.html" class="footer-link" data-i18n="footer_about">About</a></li>
+      <li><a href="contact.html" class="footer-link" data-i18n="footer_contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

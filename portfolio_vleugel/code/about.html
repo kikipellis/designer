@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the designer - Kiki Pellis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Vaste achtergrond die NOOIT meebeweegt -->
+  <div class="fixed-background" aria-hidden="true"></div>
+
+  <!-- Header balk die wegscrolt -->
+  <header class="site-header">
+    <a href="index.html" class="logo-box" aria-label="Kiki Pellis Home">KP</a>
+    <div class="nav-container">
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html#projects" class="nav-link" id="nav-projects-link" data-i18n="nav_projects">projects</a></li>
+          <li><a href="about.html" class="nav-link active" data-i18n="nav_about">about me</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="lang-btn" id="lang-toggle-btn" aria-label="Switch language">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="lang-text" class="lang-text">NL</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="subpage-container">
+      <div class="content-box">
+        <!-- Linker kolom: Titels en About me beschrijving -->
+        <div class="content-left">
+          <h1 class="content-title" data-i18n="about_title">About the designer</h1>
+          <p class="content-desc" data-i18n="about_desc">Ik ben Kiki Pellis. Een tweede jaars CMD student aan hogeschool Avans in Breda.
+
+Wat ik het meest interessant vind binnen de opleiding is alles rondom Creative Technology. Denk hierbij aan coderen, websites bouwen, games maken en zelfs robots bouwen!
+
+Mij zal je niet zo snel op de voorgrond zien of horen. Ik werk namelijk liever op de achtergrond. Maar dat betekent niet dat ik niet weet wat er speelt! Ik ben goed in het observeren van de situatie en zoek dingen tot op de bodem uit. Ik let tijdens het ontwerpen vooral op de functionaliteit en of het de beoogde doelgroep aantrekt. Daarnaast zorg ik er altijd voor dat ik mijn ontwerp tot in de details toe goed uitwerk voor een gewenst resultaat.</p>
+        </div>
+
+        <!-- Rechter kolom: Afbeeldingsslider met foto van Kiki -->
+        <div class="content-right">
+          <div class="gallery-slider" data-images='["../images/About me/About_me_1.jpeg"]'>
+            <button type="button" class="slider-arrow-btn slider-prev" aria-label="Vorige afbeelding">&lt;</button>
+            <div class="gallery-image-frame vertical-frame">
+              <img src="../images/About me/About_me_1.jpeg" alt="Kiki Pellis" class="gallery-image">
+            </div>
+            <button type="button" class="slider-arrow-btn slider-next" aria-label="Volgende afbeelding">&gt;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer balk -->
+  <footer class="site-footer">
+    <div class="footer-copyright">©2026 Kiki Pellis</div>
+    <ul class="footer-nav">
+      <li><a href="index.html#projects" class="footer-link" data-i18n="footer_projects">Projects</a></li>
+      <li><a href="about.html" class="footer-link" data-i18n="footer_about">About</a></li>
+      <li><a href="contact.html" class="footer-link" data-i18n="footer_contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

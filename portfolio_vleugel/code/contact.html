@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact me - Kiki Pellis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Vaste achtergrond die NOOIT meebeweegt -->
+  <div class="fixed-background" aria-hidden="true"></div>
+
+  <!-- Header balk die wegscrolt -->
+  <header class="site-header">
+    <a href="index.html" class="logo-box" aria-label="Kiki Pellis Home">KP</a>
+    <div class="nav-container">
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html#projects" class="nav-link" id="nav-projects-link" data-i18n="nav_projects">projects</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">about me</a></li>
+          <li><a href="contact.html" class="nav-link active" data-i18n="nav_contact">contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="lang-btn" id="lang-toggle-btn" aria-label="Switch language">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="lang-text" class="lang-text">NL</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="subpage-container">
+      <div class="content-box">
+        <!-- Linker kolom: Contactgegevens -->
+        <div class="content-left">
+          <h1 class="content-title" data-i18n="contact_title">Contact me</h1>
+
+          <div class="contact-info-group">
+            <div class="contact-info-label" data-i18n="contact_email_label">E-mail:</div>
+            <div class="contact-info-val">- kikipellis@gmail.com</div>
+          </div>
+
+          <div class="contact-info-group">
+            <div class="contact-info-label" data-i18n="contact_location_label">Location:</div>
+            <div class="contact-info-val" data-i18n="contact_location_val">- Breda, The Netherlands</div>
+          </div>
+
+          <div class="contact-info-group">
+            <div class="contact-info-label" data-i18n="contact_edu_label">Education:</div>
+            <div class="contact-info-val" data-i18n="contact_edu_val">- Communication &amp; Multi-media<br>&nbsp;&nbsp;Design, Avans University of Applied<br>&nbsp;&nbsp;sciences</div>
+          </div>
+        </div>
+
+        <!-- Rechter kolom: Bericht achterlaten formulier -->
+        <div class="content-right contact-form-container">
+          <h2 class="contact-form-heading" data-i18n="form_heading">Leave me a message!</h2>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <input type="text" id="form-name" class="form-input" placeholder="Name" data-i18n="form_name_ph" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" class="form-input" placeholder="E-mail" data-i18n="form_email_ph" required>
+            </div>
+            <div class="form-group">
+              <textarea id="form-message" class="form-textarea" placeholder="Message..." data-i18n="form_message_ph" required></textarea>
+            </div>
+            <div class="submit-btn-wrapper">
+              <button type="submit" class="submit-btn" data-i18n="form_submit_btn">Verstuur</button>
+              <span class="form-status-msg" id="form-status-msg"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer balk -->
+  <footer class="site-footer">
+    <div class="footer-copyright">©2026 Kiki Pellis</div>
+    <ul class="footer-nav">
+      <li><a href="index.html#projects" class="footer-link" data-i18n="footer_projects">Projects</a></li>
+      <li><a href="about.html" class="footer-link" data-i18n="footer_about">About</a></li>
+      <li><a href="contact.html" class="footer-link" data-i18n="footer_contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
