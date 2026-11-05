@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'>
+  <!-- Dark shadow for high visibility on any background -->
+  <circle cx='12' cy='12' r='8.5' stroke='#000000' stroke-width='3.5' opacity='0.7'/>
+  <line x1='19' y1='19' x2='29' y2='29' stroke='#000000' stroke-width='6' stroke-linecap='round' opacity='0.7'/>
+
+  <!-- Lens Glass Fill & Rim -->
+  <circle cx='12' cy='12' r='8' fill='rgba(255,255,255,0.22)' stroke='#ffffff' stroke-width='2.2'/>
+  <circle cx='12' cy='12' r='6.8' stroke='#f1f5f9' stroke-width='0.8' opacity='0.9'/>
+
+  <!-- Curved Glint inside lens -->
+  <path d='M8 7.5 A 5.5 5.5 0 0 1 15.5 6.5' stroke='#ffffff' stroke-width='1.8' stroke-linecap='round' fill='none'/>
+
+  <!-- Silver/white connector -->
+  <line x1='17.5' y1='17.5' x2='19.5' y2='19.5' stroke='#ffffff' stroke-width='3' stroke-linecap='round'/>
+
+  <!-- Sleek whitish / light handle -->
+  <line x1='19.5' y1='19.5' x2='28.5' y2='28.5' stroke='#e2e8f0' stroke-width='4.5' stroke-linecap='round'/>
+  <line x1='20' y1='20' x2='28' y2='28' stroke='#ffffff' stroke-width='2' stroke-linecap='round'/>
+</svg>

@@ -1,0 +1,822 @@
+/* =========================================================
+   PORTFOLIO WEBSITE - KIKI PELLIS
+   Typography: Courier New
+   Wireframe Faithful Implementation
+   ========================================================= */
+
+/* CSS Reset & Variables */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-main: 'Courier New', Courier, monospace;
+  --color-header-footer: #2b4865;
+  --color-card-bg: #000000;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text-muted: #e2e8f0;
+  --transition-smooth: 0.25s ease;
+}
+
+html {
+  font-family: var(--font-main);
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  position: relative;
+  overflow-x: hidden;
+  background-color: #1d2d42;
+}
+
+/* =========================================================
+   FIXED BACKGROUND
+   De achtergrond beweegt NOOIT tijdens het scrollen
+   ========================================================= */
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./assets/website_background.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: -10;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* =========================================================
+   HEADER BAR (Balk bovenin)
+   Blijft NIET in beeld bij scrollen (scrolt weg)
+   ========================================================= */
+.site-header {
+  background-color: var(--color-header-footer);
+  width: 100%;
+  padding: 1.1rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Scrolls naturally with content */
+  z-index: 10;
+}
+
+/* Logo "KP" met wit kader - iets vergroot maar blijft netjes op de balk */
+.logo-box {
+  border: 2px solid var(--color-white);
+  padding: 5px 16px;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: var(--color-white);
+  text-decoration: none;
+  letter-spacing: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Navigatie container */
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+/* Navigatie items & Dunne streep hover/actief */
+.nav-link {
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 5px;
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  border: none;
+  /* Belangrijk: tekst mag NIET vergroten bij hover */
+  transform: none !important;
+  transition: opacity var(--transition-smooth);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-white);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Vertaal knop (NL / EN) - iets kleiner met afgeronde hoeken en icoontje */
+.lang-btn {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+.lang-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.lang-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   MAIN WRAPPER & PAGE SECTIONS
+   ========================================================= */
+.main-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   HERO SECTIE (HOMEPAGE - Zwarte Vleugel met Witte Quote)
+   ========================================================= */
+.hero-section {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem 4rem 1.5rem;
+  position: relative;
+}
+
+/* Zwarte vleugel wrapper - iets groter om het scherm meer op te vullen */
+.wing-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 960px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.wing-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 22px rgba(0, 0, 0, 0.6));
+}
+
+/* Witte fade achter de quote en zwarte tekst - blijft vast op vleugel bij scrollen */
+.hero-quote-box {
+  position: absolute;
+  top: 36%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  text-align: center;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 48%, rgba(255, 255, 255, 0.4) 74%, rgba(255, 255, 255, 0) 100%);
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.hero-quote-text {
+  font-family: var(--font-main);
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #000000;
+  line-height: 1.55;
+  margin: 0;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+/* Scroll knop naar beneden "projects ↓" - GEEN witte dunne lijn onder bij hover */
+.hero-scroll-btn {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  position: relative;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.hero-scroll-btn::after {
+  display: none !important;
+}
+
+.hero-scroll-arrow {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+/* =========================================================
+   PROJECTEN GRID (HOMEPAGE)
+   ========================================================= */
+.projects-section {
+  width: 100%;
+  max-width: 1140px;
+  padding: 3rem 2rem 6rem 2rem;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4.5rem;
+  row-gap: 5.5rem;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.project-card {
+  background-color: var(--color-card-bg);
+  width: 100%;
+  max-width: 480px;
+  padding: 2.2rem 2.2rem 2.5rem 2.2rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition: box-shadow var(--transition-smooth);
+}
+
+.project-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Witte fotokader - afbeelding vult het gehele vlak op zonder witte randen */
+.project-card-image-frame {
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card-image-frame.empty-frame {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  background-color: var(--color-white);
+  display: block;
+}
+
+/* Wit-achtige detective loep cursor & Zwart-wit effect bij hover */
+.project-card-image,
+.project-card-image-frame {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20fill%3D%27none%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%278.5%27%20stroke%3D%27%23000000%27%20stroke-width%3D%273.5%27%20opacity%3D%270.7%27%2F%3E%3Cline%20x1%3D%2719%27%20y1%3D%2719%27%20x2%3D%2729%27%20y2%3D%2729%27%20stroke%3D%27%23000000%27%20stroke-width%3D%276%27%20stroke-linecap%3D%27round%27%20opacity%3D%270.7%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%278%27%20fill%3D%27rgba(255%2C255%2C255%2C0.22)%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272.2%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%276.8%27%20stroke%3D%27%23f1f5f9%27%20stroke-width%3D%270.8%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20d%3D%27M8%207.5%20A%205.5%205.5%200%200%201%2015.5%206.5%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%2F%3E%3Cline%20x1%3D%2717.5%27%20y1%3D%2717.5%27%20x2%3D%2719.5%27%20y2%3D%2719.5%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cline%20x1%3D%2719.5%27%20y1%3D%2719.5%27%20x2%3D%2728.5%27%20y2%3D%2728.5%27%20stroke%3D%27%23e2e8f0%27%20stroke-width%3D%274.5%27%20stroke-linecap%3D%27round%27%2F%3E%3Cline%20x1%3D%2720%27%20y1%3D%2720%27%20x2%3D%2728%27%20y2%3D%2728%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E") 12 12, url("./assets/magnifier.png") 12 12, url("./assets/magnifier.svg") 12 12, zoom-in, pointer !important;
+}
+
+.project-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  display: block;
+  transition: filter var(--transition-smooth);
+}
+
+.project-card:hover .project-card-image {
+  filter: grayscale(100%);
+}
+
+.project-card-title {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  color: var(--color-white);
+  font-weight: normal;
+  margin-bottom: 0.6rem;
+}
+
+.project-card-desc {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  color: var(--color-white);
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   DETAIL & SUBPAGINA'S (PROJECTS, ABOUT, CONTACT)
+   Grote zwarte container met 2 kolommen
+   ========================================================= */
+.subpage-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 3.5rem auto 6rem auto;
+  padding: 0 2rem;
+}
+
+.content-box {
+  background-color: var(--color-card-bg);
+  width: 100%;
+  padding: 3.5rem 3rem 4rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Linker kolom: Titels en tekst */
+.content-left {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.content-title {
+  font-family: var(--font-main);
+  font-size: 1.65rem;
+  color: var(--color-white);
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.content-desc {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-white);
+  word-break: break-word;
+  white-space: pre-line;
+  flex: 1;
+}
+
+.content-meta {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  color: var(--color-white);
+  margin-top: 2.5rem;
+}
+
+/* Contact info lijsten */
+.contact-info-group {
+  margin-bottom: 2rem;
+}
+
+.contact-info-label {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+}
+
+.contact-info-val {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-white);
+  padding-left: 1.2rem;
+}
+
+/* Rechter kolom: Afbeeldingsslider */
+.content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.gallery-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 0.8rem;
+  box-sizing: border-box;
+}
+
+/* Slider pijltjes */
+.slider-arrow-btn {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.slider-arrow-btn:hover {
+  opacity: 0.75;
+}
+
+.slider-arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Afbeeldingskader van de projecten: BINNEN het zwarte kader, vult volledig zonder witte randen */
+.gallery-image-frame {
+  background-color: var(--color-white);
+  padding: 0;
+  max-width: 440px;
+  max-height: 440px;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 1;
+}
+
+.gallery-image {
+  max-width: 440px;
+  max-height: 440px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in, pointer;
+  transition: opacity var(--transition-smooth);
+}
+
+.gallery-image:hover {
+  opacity: 0.92;
+}
+
+/* About pagina: wit kader aangepast voor verticale afbeelding */
+.gallery-image-frame.vertical-frame {
+  max-width: 360px;
+  max-height: 450px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* =========================================================
+   LIGHTBOX MODAL POPUP (Volledige afbeelding)
+   ========================================================= */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+.modal-close-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 2.2rem;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10001;
+  font-family: var(--font-main);
+  padding: 0.5rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content img {
+  max-width: 90vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid var(--color-white);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+/* Placeholder box voor About me "FOTO" */
+.gallery-placeholder-box {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black);
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+/* =========================================================
+   CONTACT FORMULIER (CONTACT ME)
+   ========================================================= */
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-form-heading {
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: var(--color-white);
+  margin-bottom: 1.8rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input,
+.form-textarea {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: none;
+  padding: 0.75rem 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.form-textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #555555;
+  font-family: var(--font-main);
+}
+
+/* "Verstuur" knop met dunne onderstreping bij hover */
+.submit-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.submit-btn {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  align-self: flex-start;
+  /* Geen vergroting van tekst */
+  transform: none !important;
+}
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-white);
+  transition: width var(--transition-smooth);
+}
+
+.submit-btn:hover::after {
+  width: 100%;
+}
+
+.form-status-msg {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: #86efac;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-status-msg.visible {
+  opacity: 1;
+}
+
+/* =========================================================
+   FOOTER (Balk onderin)
+   Dezelfde donkerblauwe kleur en afmetingen als header
+   ========================================================= */
+.site-footer {
+  background-color: var(--color-header-footer);
+  width: 100%;
+  padding: 1.5rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  z-index: 10;
+}
+
+.footer-copyright {
+  font-family: var(--font-main);
+  font-size: 1.15rem;
+  color: var(--color-white);
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.footer-link {
+  font-family: var(--font-main);
+  font-size: 1.15rem;
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  /* Geen vergroting */
+  transform: none !important;
+  transition: opacity var(--transition-smooth);
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-white);
+  transition: width var(--transition-smooth);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================= */
+@media (max-width: 960px) {
+  .site-header, .site-footer {
+    padding: 1.1rem 1.5rem;
+  }
+
+  .nav-container {
+    gap: 1.5rem;
+  }
+
+  .nav-links, .footer-nav {
+    gap: 1.2rem;
+  }
+
+  .nav-link, .footer-link {
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    row-gap: 3.5rem;
+  }
+
+  .content-box {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.2rem 1.8rem;
+  }
+
+  .hero-quote-box {
+    width: 75%;
+    top: 38%;
+  }
+
+  .hero-quote-text {
+    font-size: 0.95rem;
+  }
+
+  .gallery-image-frame.vertical-frame {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.1rem 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-quote-box {
+    width: 85%;
+    left: 48%;
+  }
+
+  .hero-quote-text {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+}

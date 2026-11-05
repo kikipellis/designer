@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Pellis - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Vaste achtergrond die NOOIT meebeweegt -->
+  <div class="fixed-background" aria-hidden="true"></div>
+
+  <!-- Header balk die wegscrolt -->
+  <header class="site-header">
+    <a href="index.html" class="logo-box" aria-label="Kiki Pellis Home">KP</a>
+    <div class="nav-container">
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#projects" class="nav-link" id="nav-projects-link" data-i18n="nav_projects">projects</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="nav_about">about me</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="lang-btn" id="lang-toggle-btn" aria-label="Switch language">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span id="lang-text" class="lang-text">NL</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero sectie met vleugel en quote -->
+    <section class="hero-section" aria-label="Hero Introductie">
+      <div class="wing-wrapper">
+        <img src="./assets/vleugel_zwart2.png" alt="Portfolio Wing" class="wing-image">
+        <div class="hero-quote-box">
+          <p class="hero-quote-text" data-i18n="hero_quote">“A designer who likes to work in the background, but knows what is going on and keeps a cool head under high pressure.”</p>
+        </div>
+      </div>
+      <a href="#projects" class="hero-scroll-btn" aria-label="Scroll naar projecten">
+        <span data-i18n="hero_scroll">projects</span>
+        <span class="hero-scroll-arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- Projecten grid (4 projecten zoals op wireframe) -->
+    <section class="projects-section" id="projects" aria-label="Portfolio Projecten">
+      <div class="projects-grid">
+        <!-- Project 1: Flappy Bird game -->
+        <a href="project-flappy-bird.html" class="project-card">
+          <div class="project-card-image-frame">
+            <img src="./images/Flappy Bird project/flappy_bird_front_image.png" alt="Flappy Bird game" class="project-card-image">
+          </div>
+          <h2 class="project-card-title">“Flappy Bird game”</h2>
+          <p class="project-card-desc" data-i18n="flappy_bird_desc">Self-designed Flappy Bird game in Unity.</p>
+        </a>
+
+        <!-- Project 2: Game controller -->
+        <a href="project-game-controller.html" class="project-card">
+          <div class="project-card-image-frame">
+            <img src="./images/Arduino controller project/arduino_controller_front_image.png" alt="Game controller" class="project-card-image">
+          </div>
+          <h2 class="project-card-title">“Game controller”</h2>
+          <p class="project-card-desc" data-i18n="game_controller_desc">Working game controller with WASD controls.</p>
+        </a>
+
+        <!-- Project 3: Escape room museum app -->
+        <a href="project-escape-room.html" class="project-card">
+          <div class="project-card-image-frame empty-frame"></div>
+          <h2 class="project-card-title">“Escape room museum app”</h2>
+          <p class="project-card-desc" data-i18n="escape_room_desc">Escape room app extension for museum app.</p>
+        </a>
+
+        <!-- Project 4: Lady Bird -->
+        <a href="project-lady-bird.html" class="project-card">
+          <div class="project-card-image-frame">
+            <img src="./images/Lady Bird project/Lady_Bird_front_image.png" alt="Lady Bird" class="project-card-image">
+          </div>
+          <h2 class="project-card-title">“Lady Bird”</h2>
+          <p class="project-card-desc" data-i18n="lady_bird_desc">Frame-by-frame animated opening title sequence for the film Lady Bird.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer balk -->
+  <footer class="site-footer">
+    <div class="footer-copyright">©2026 Kiki Pellis</div>
+    <ul class="footer-nav">
+      <li><button type="button" class="footer-link back-to-top-btn" data-i18n="footer_back_to_top">Back to top ↑</button></li>
+      <li><a href="about.html" class="footer-link" data-i18n="footer_about">About</a></li>
+      <li><a href="contact.html" class="footer-link" data-i18n="footer_contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
